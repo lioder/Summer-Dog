@@ -465,12 +465,13 @@ class IceCream {
       Math.abs(this.threegroup.position.x - -9) < 20 &&
       Math.abs(this.threegroup.position.y - 122) < 20
     ) {
+      let oldScaleX = this.cream.scale.x;
       this.cream.scale.x += (0 - this.cream.scale.x) / speed;
       if (this.cream.scale.x < 0.15) {
         this.cream.material.visible = false;
         this.bar.material.visible = false;
       } else {
-        this.bar.position.x += 14 / speed;
+        this.bar.position.x += (oldScaleX - this.cream.scale.x) * 45 / 2;
       }
     }
   };
